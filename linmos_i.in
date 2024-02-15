@@ -1,0 +1,11 @@
+linmos.names            = [SB51997.3C286_45deg.beam1.i.cube.fixed,SB51997.3C286_45deg.beam6.i.cube.fixed]
+linmos.imagetype        = fits
+linmos.outname          = SB51997.3C286_45deg.linmos.i.cube.pbcor
+linmos.outweight        = SB51997.3C286_45deg.linmos.i.cube.pbcor.weight
+# For ASKAPsoft>1.3.0
+linmos.useweightslog    = true
+linmos.weighttype       = FromPrimaryBeamModel
+linmos.weightstate      = Inherent
+linmos.primarybeam      = ASKAP_PB
+linmos.primarybeam.ASKAP_PB.image = /scratch3/projects/spiceracs/akpb.iquv.closepack36.54.943MHz.SB51811.cube.fits
+linmos.removeleakage    = true
