@@ -21,7 +21,7 @@ def cutout_3c286():
         ra_low=threec_286.ra.deg - 0.0,
         dec_high=threec_286.dec.deg + 0.0,
         dec_low=threec_286.dec.deg - 0.0,
-        outdir="/scratch3/projects/spiceracs/askap_pol_testing/cubes/cutouts/3C286"
+        outdir="/scratch3/projects/spiceracs/askap_pol_testing/52087_cal/cutouts/3C286"
     )
     updates = {}
     w_updates = {}
@@ -29,7 +29,7 @@ def cutout_3c286():
         updates[stokes] = {}
         w_updates[stokes] = {}
         for beam in range(36):
-            image_name = f"image.restored.{stokes}.3C286_45deg.contcube.beam{beam:02d}.conv.fits"
+            image_name = f"/scratch3/projects/spiceracs/askap_pol_testing/52087_cal/image.restored.{stokes}.3C286_15deg.contcube.beam{beam:02d}.conv.fits"
             update = cutout_image(
                 image_name=image_name,
                 data_in_mem=fits.getdata(image_name),
@@ -81,7 +81,7 @@ def cutout_3c286():
                 }
             }
     )
-    datadir=Path("/scratch3/projects/spiceracs/askap_pol_testing/cubes/cutouts")
+    datadir=Path("/scratch3/projects/spiceracs/askap_pol_testing/52087_cal/cutouts")
     holofile=Path("/scratch3/projects/spiceracs/akpb.iquv.closepack36.54.943MHz.SB51811.cube.fits")
     siffile=Path("/datasets/work/sa-mhongoose/work/containers/askapsoft_1.15.0-openmpi4.sif")
     for stoke in "iqu":
@@ -120,8 +120,8 @@ def main(
         _ = imager.main.with_options(
             name=f"Arrakis Imaging -- 3C286", task_runner=dask_runner
         )(
-            msdir=Path("/scratch3/projects/spiceracs/3C286_flint_main/51997"),
-            out_dir=Path("/scratch3/projects/spiceracs/askap_pol_testing/cubes"),
+            msdir=Path("/scratch3/projects/spiceracs/3C286_flint_main/52087/"),
+            out_dir=Path("/scratch3/projects/spiceracs/askap_pol_testing/52087_cal"),
             size=4096,
             force_mask_rounds=10,
             minuv=300,
@@ -129,7 +129,7 @@ def main(
             local_rms=True,
             local_rms_window=65,
             wsclean_path=Path("/datasets/work/sa-mhongoose/work/containers/wsclean:force_mask.sif"),
-            ms_glob_pattern="SB51997.3C286_45deg.beam*[0-9].ms",
+            ms_glob_pattern="SB52087.3C286_15deg.beam*[0-9].ms",
             skip_fix_ms=True,
             nchan=8,
         )
